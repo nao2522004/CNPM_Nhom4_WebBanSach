@@ -273,9 +273,6 @@
             </button>
         </div>
 
-<%------/*==============================*/--%>
-<%------/*-------- Add User Form -------*/--%>
-<%------/*==============================*/--%>
         <section class="overlay-addUser">
             <form id="add-user-form">
                 <div class="form-group">
@@ -471,83 +468,90 @@
         </div>
 
         <section class="overlay-addProduct">
-            <form id="add-product-form">
+            <form id="add-product-form" onsubmit="createBook(event)">
                 <div class="form-group">
                     <div class="form-group--items">
-                        <label for="typeId">Loại</label>
-                        <select id="typeId" name="typeId" required>
-                            <option type="number" value="1">Áo</option>
-                            <option type="number" value="2">Quần</option>
-                        </select>
+                        <label for="title">Tiêu đề sách</label>
+                        <input type="text" id="title" name="title" placeholder="Nhập tiêu đề sách" required>
                     </div>
                     <div class="form-group--items">
-                        <label for="categoryId">Danh Mục</label>
-                        <select id="categoryId" name="categoryId" required>
-                            <option type="number" value="1">Áo nam</option>
-                            <option type="number" value="2">Áo Nữ</option>
-                            <option type="number" value="3">Áo trẻ em</option>
-                            <option type="number" value="4">Quần nam</option>
-                            <option type="number" value="5">Quần nữ</option>
-                            <option type="number" value="6">Quần trẻ em</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="form-group--items">
-                        <label for="supplierId">Thương Hiệu</label>
-                        <select id="supplierId" name="supplierId" required>
-                            <option type="number" value="1">PEALO</option>
-                            <option type="number" value="2">B Brown Studio</option>
-                            <option type="number" value="3">BBRAND</option>
-                            <option type="number" value="4">RUYCH STUDIO</option>
-                        </select>
-                    </div>
-                    <div class="form-group--items">
-                        <label for="name">Tên Sản Phẩm</label>
-                        <input type="text" id="name" name="name" placeholder="Nhập tên sản phẩm."
-                               required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="form-group--items">
-                        <label for="description">Mô tả sản phẩm</label>
-                        <textarea id="description" name="description" placeholder="Nhập mô tả sản phẩm."
-                                  required></textarea>
-                    </div>
-                    <div class="form-group--items">
-                        <label for="releaseDate">Ngày phát hành</label>
-                        <input type="date" id="releaseDate" name="releaseDate" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="form-group--items">
-                        <label for="unitSold">Số lượng đã bán</label>
-                        <input type="number" id="unitSold" name="unitSold" placeholder="Nhập số lượng đã bán"
-                               required>
-                    </div>
-                    <div class="form-group--items">
-                        <label for="unitPrice">Giá đơn vị</label>
-                        <input type="number" id="unitPrice" name="unitPrice" placeholder="Nhập giá đơn vị sản phẩm"
-                               required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="form-group--items">
-                        <label for="product-status">Trạng thái</label>
-                        <select id="product-status" name="status">
-                            <option value="0">Đã xóa</option>
-                            <option value="1" selected>Còn hàng</option>
-                            <option value="2">Hết hàng</option>
-                        </select>
+                        <label for="author">Tác giả</label>
+                        <input type="text" id="author" name="author" placeholder="Nhập tên tác giả" required>
                     </div>
                 </div>
 
-                <button type="submit" onclick="createProduct(event)" class="btn-primary"><span
-                        class="material-icons-sharp"> add </span>
-                    <h3>Thêm Sản Phẩm</h3>
+                <div class="form-group">
+                    <div class="form-group--items">
+                        <label for="description">Mô tả sách</label>
+                        <textarea id="description" name="description" placeholder="Nhập mô tả sách" required></textarea>
+                    </div>
+                    <div class="form-group--items">
+                        <label for="publishedDate">Ngày xuất bản</label>
+                        <input type="date" id="publishedDate" name="publishedDate" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group--items">
+                        <label for="price">Giá (VNĐ)</label>
+                        <input type="number" id="price" name="price" placeholder="Nhập giá sách" min="0" step="0.01" required>
+                    </div>
+                    <div class="form-group--items">
+                        <label for="stockQty">Số lượng tồn</label>
+                        <input type="number" id="stockQty" name="stockQty" placeholder="Nhập số lượng tồn" min="0" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group--items">
+                        <label for="categoryIds">Danh mục</label>
+                        <select id="categoryIds" name="categoryIds" multiple size="4" required>
+                            <!-- Render động từ server hoặc JS -->
+                            <option value="1">Văn học</option>
+                            <option value="2">Khoa học</option>
+                            <option value="3">Truyện tranh</option>
+                            <option value="4">Giáo khoa</option>
+                        </select>
+                        <small>Giữ Ctrl (Cmd) để chọn nhiều</small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group--items">
+                        <label for="imageUrl">Đường dẫn ảnh sách (tuỳ chọn)</label>
+                        <input type="text" id="imageUrl" name="imageUrl" placeholder="/images/books/book1.jpg">
+                        <small>Nếu để trống, hệ thống sẽ dùng ảnh mặc định.</small>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary">
+                    <span class="material-icons-sharp">library_add</span>
+                    <h3>Thêm Sách</h3>
                 </button>
             </form>
         </section>
+
+
+        <div class="recent-orders">
+            <h1 style="text-align: center" ;>Danh Sách Sản Phẩm</h1>
+            <table id="products--table">
+                <thead>
+                <tr>
+                    <th>Mã</th>
+                    <th>Tiêu đề</th>
+                    <th>Tác giả</th>
+                    <th style="width: 200px">Mô tả</th>
+                    <th>Ngày xuất bản</th>
+                    <th>Số lượng tồn</th>
+                    <th>Giá (VNĐ)</th>
+                    <th>Trạng thái</th>
+                    <th style="width: 120px">Hành động</th>
+                </tr>
+                </thead>
+                <!-- Add tbody here | JS insertion -->
+            </table>
+            <a href="#">Show All</a>
+        </div>
 
         <section class="overlay-addproductDetails">
             <form id="add-productDetails-form">
@@ -586,29 +590,6 @@
                 </button>
             </form>
         </section>
-
-        <div class="recent-orders">
-            <h1 style="text-align: center" ;>Danh Sách Sản Phẩm</h1>
-            <table id="products--table">
-                <thead>
-                <tr>
-                    <th>Mã</th>
-                    <th>Loại</th>
-                    <th>Danh mục</th>
-                    <th>Nhà cung cấp</th>
-                    <th style="width: 170px">Tên</th>
-                    <th style="width: 200px">Mô tả</th>
-                    <th style="width: 120px">Ngày Nhập</th>
-                    <th>Số lượng</th>
-                    <th>Giá</th>
-                    <th>Trạng thái</th>
-                    <th style="width: 120px">Hành động</th>
-                </tr>
-                </thead>
-                <!-- Add tbody here | JS insertion -->
-            </table>
-            <a href="#">Show All</a>
-        </div>
 
         <!-- edit products -->
         <div class="overlay overlay-productForId">
