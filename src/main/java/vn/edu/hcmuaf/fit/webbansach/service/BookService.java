@@ -33,6 +33,13 @@ public class BookService {
                         : "/images/books/default.jpg"
         );
 
+        // 1. Kiểm tra sách đã tồn tại chưa
+        //13.1.1.7 Gọi existsByTitleAndAuthor(dto.getTitle(), dto.getAuthor())
+        if (bookRepo.existsByTitleAndAuthor(dto.getTitle(), dto.getAuthor())) {
+            //13.1.2.10 IllegalArgumentException:("Sách với tiêu đều này đã tồn tại")
+            throw new IllegalArgumentException("Sách với tiêu đề và tác giả này đã tồn tại");
+        }
+
         // 1. Lưu sách trước để sinh id
         Books savedBook = bookRepo.save(book);
 
@@ -43,6 +50,7 @@ public class BookService {
         savedBook.getCategories().addAll(cats);
 
         // 4. Lưu lại lần nữa để cập nhật mối quan hệ N-N
+        //13.1.1.8  Gọi JpaRepository bookRepo.save(savedBook)
         return bookRepo.save(savedBook);
     }
 
