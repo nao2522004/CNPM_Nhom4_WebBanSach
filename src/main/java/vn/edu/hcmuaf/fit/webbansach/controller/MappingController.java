@@ -6,19 +6,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MappingController {
 
+    // Khi vào root (/), chuyển hướng sang /homePage
     @GetMapping("/")
-    public String root() {
+    public String redirectToHome() {
         return "redirect:/homePage";
     }
 
+    // Khi vào /homePage, trả về trang index.jsp
     @GetMapping("/homePage")
     public String homePage() {
-        return "index";
+        return "/index";
     }
-
 
     @GetMapping("/admin")
     public String admin() {
-        return "admin";
+        return "/admin";
     }
 }
+

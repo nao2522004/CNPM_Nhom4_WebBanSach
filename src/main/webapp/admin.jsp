@@ -317,18 +317,18 @@
                         <input type="tel" id="addPhoneUser" name="phone" placeholder="Nhập số điện thoại." required>
                     </div>
                 </div>
-<%--                <div class="form-group">--%>
-<%--                    <div class="form-group--items">--%>
-<%--                        <label for="addStatusUser">Trạng Thái</label>--%>
-<%--                        <select id="addStatusUser" name="status" required>--%>
-<%--                            <option type="number" value="0">Chưa kích hoạt</option>--%>
-<%--                            <option type="number" value="1">Hoạt Động</option>--%>
-<%--                            <option type="number" value="2">Bị khóa</option>--%>
-<%--                            <option type="number" value="3">Bị cấm</option>--%>
-<%--                            <option type="number" value="4">Đã xóa</option>--%>
-<%--                        </select>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
+                <%--                <div class="form-group">--%>
+                <%--                    <div class="form-group--items">--%>
+                <%--                        <label for="addStatusUser">Trạng Thái</label>--%>
+                <%--                        <select id="addStatusUser" name="status" required>--%>
+                <%--                            <option type="number" value="0">Chưa kích hoạt</option>--%>
+                <%--                            <option type="number" value="1">Hoạt Động</option>--%>
+                <%--                            <option type="number" value="2">Bị khóa</option>--%>
+                <%--                            <option type="number" value="3">Bị cấm</option>--%>
+                <%--                            <option type="number" value="4">Đã xóa</option>--%>
+                <%--                        </select>--%>
+                <%--                    </div>--%>
+                <%--                </div>--%>
                 <button type="submit" onclick="createUser(event)" class="btn-primary">
                     <span class="material-icons-sharp"> add </span>
                     <h3>Thêm Người Dùng</h3>
@@ -694,22 +694,12 @@
     </main>
 </div>
 
-<script src="assets/js/admin-data/recent-order-data.js"></script>
-<script src="assets/js/admin-data/sales-analytics-data.js"></script>
-<script src="assets/js/admin-data/update-data.js"></script>
-
 <%-- JS --%>
 <script src="admin/js/admin.js"></script>
-<script src="admin/js/orders.js"></script>
-<script src="admin/js/orderDetails.js"></script>
-<script src="admin/js/users.js"></script>
-<script src="admin/js/userRolePermission.js"></script>
 <script src="admin/js/products.js"></script>
-
 
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
 <!-- DataTables JS -->
 <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
 <!-- DataTables CSS -->
